@@ -1,0 +1,25 @@
+body{
+	 
+	FONT-FAMILY: Calibri,Helvetica, sans-serif; font-size:18;
+}
+
+
+a               { text-decoration: none;  font-family: Arial, Helvetica, sans-serif; color: cyan;}
+a:hover         { color: black; background: #e0e0e0; text-decoration: none; font-family: Arial, Helvetica, sans-serif; }
+a.menu1         { color: #336699; font-weight: bold; text-decoration: none; font-family: Arial, Helvetica, sans-serif; }
+a.menu1:hover   { color: #DDFFFF; background: #808080; font-weight: bold; text-decoration: none; font-family: Arial, 
+
+Helvetica, sans-serif; }
+a.menu2         { color: #5599bb; font-weight: bold; font-style: italic; text-decoration: none; font-family: Arial, 
+
+Helvetica, sans-serif; }
+a.menu2:hover   { color: #DDFFFF; background: #e0e0e0; font-weight: bold; font-style: italic; text-decoration: none; 
+
+font-family: Arial, Helvetica, sans-serif; }
+a.image         {text-decoration: none; background-color: transparent; }
+a.image:hover   {text-decoration: none; background-color: transparent; }
+
+.menu{position: relative; top: -61px; left: 0px;}    
+.menud{position: relative; top: -74px; left: 0px;}   
+.dynamicpos{position: relative; top: -71px; left: 0px;}   
+.text{COLOR: white;}

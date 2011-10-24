@@ -1,0 +1,56 @@
+<html >
+<head>
+
+<link rel="File-List" href="banner_files/filelist.xml">
+
+<script language="javascript">
+
+
+function object()
+{
+this.JSclock = JSclock;
+}
+var object = new object();
+var TimerID = 0;
+function JSclock() {
+   var temp;
+   window.clearTimeout(TimerID);
+   TimerId = window.setTimeout( JSclock, 60000 );
+   var time = new Date();
+   var hour = time.getHours();
+   var minute = time.getMinutes();
+   var seconds = time.getSeconds();
+   temp =  ((hour<10) ? "0":"" )+ hour;
+   temp +=  ((minute< 10) ? ":0" : ":") + minute;
+   document.getElementById("time").innerHTML = temp;
+   
+   //temp +=  ((seconds< 10) ? ":0" : ":") + seconds;
+   //
+   //temp += (hour >= 12) ? " P.M." : " A.M."
+   }
+
+</script>
+<style>
+.babs{position:absolute;left:200px; top:30px}
+.abs{position:absolute;left:1px; top:1px}
+.tab{ position:relative; left: 33px; top:-85px; font-size: x-large}
+.reset{position:absolute;left:0px; top:0px}
+
+</style>
+
+
+</head>
+
+<body bgcolor="black">
+
+<img src="./resources/sp.jpg" height="100%" width="100%" class="reset">	
+<!--
+<font face="DigifaceWide">
+<div class="abs"><img width=154 height=132 src="banner_files/image001.gif" ><div  id="time" class="tab"> </div></div>
+</font>
+
+<div class="babs" align="center"><center><font face="DigifaceWide" style="font-size: 50pt; font-weight:700" color="white">
+&nbsp;R O B O T I C S</font></center></div>
+-->
+</body>
+</html>
