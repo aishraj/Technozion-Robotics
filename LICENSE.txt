@@ -1,3 +1,9 @@
+    Technozion Robotics - Team Management system for Robotics Event at Technozion, NIT Warangal
+    Copyright (C) 2012  Aish Raj Dahal
+    Copyright (C) 2012  Ritesh Kumar Gupta
+    Copyright (C) 2011  Sumit Pareek
+    Copyright (C) 200   Siddhant Raut
+
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
