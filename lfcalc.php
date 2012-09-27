@@ -11,36 +11,83 @@ function calc()
 {
 
 	/*
-	10 points will be awarded for a goal scored.
-30 points extra will be awarded for a wireless controlled bot.
-5 points will be deducted if the participant touches the bot more than two times.
+	A maximum time of 5 minutes is allowed for a robot to complete the course. A robot that cannot complete the course in the allotted time shall be disqualified.
+	The track is divided into checkpoints at various locations. A team will be awarded 20 points on crossing a checkpoint.
+	A maximum of 4 corrections are allowed. For every next correction the team will be deducted with 5 points.
+	On completion of the whole track in given time, the team is given 40 points.
+	For teams which complete within 5 minutes extra points will be given as of (5-t)*20.
+	Extra 40 points will be awarded for a bot built with a self made design rather than a commercially complete robotic-systems which are sold ready for the purpose of the competition is not allowed.
+	The organizers reserve the right to change any or all of the rules as they deem fit.
+	Violation of any of the rules will lead to disqualification. Judges' decision shall be treated as final and binding on all.
+	The teams may be asked questions on the design of the circuit and other details on the implementation.
 	*/
 
-	var goal_int,wireless_int,touches_int,total_scr;
-
-	if (document.data.goal.value=="")
-	goal_int=parseInt(0);
+	var ttaken_flt,total_scr;
+	var FIVE=parseFloat(5);
+	var cpt_int,touches_int,whole_int,selfmade_int,extra_int,whole_status,selfmade_status;
+	
+	whole_status=parseInt(0);
+	selfmade_status=parseInt(0);
+	
+	if(document.getElementById('whole1').checked)
+	{
+		whole_status=parseInt(1);
+	}
+	if(document.getElementById('selfmade1').checked)
+	{
+		selfmade_status=parseInt(1);
+	}
+	
+	
+	if (document.data.ttaken.value=="")
+	ttaken_flt=parseFloat(0);
 	else
-	goal_int=parseInt(document.data.goal.value);
+	ttaken_flt=parseFloat(document.data.ttaken.value);
 
-	if (document.data.wireless.value=="")
-	wireless_int=parseInt(0);
+	
+	if (document.data.cpt.value=="")
+	cpt_int=parseInt(0);
 	else
-	wireless_int=parseInt(document.data.wireless.value); 
+	cpt_int=parseInt(document.data.cpt.value); 
 
 	if (document.data.touches.value=="")
 	touches_int=parseInt(0);
 	else
 	touches_int=parseInt(document.data.touches.value); 
 	
-	tot_scr=(goal_int*10);
-	tot_scr=tot_scr+wireless_int;
-	if(touches_int>2)
-	{
-		tot_scr=tot_scr-((touches_int-2)*5);
-		
-	}
 	
+	whole_int=whole_status;
+	selfmade_int=selfmade_status;
+	//if(ttaken_int<=FIVE)
+	//{
+		total_scr=parseInt(20)*cpt_int;
+		//alert("After Check Point"+total_scr);
+		
+		if(touches_int>parseInt(4))
+		{
+			total_scr=total_scr-((touches_int-4)*5);
+			//alert("Touches > 4 ka andar "+total_scr);
+			
+		}
+		
+		//If whole completed is Yes
+		if(whole_int==parseInt(1))
+		{
+			total_scr=total_scr+(40);
+			//alert("whole completed "+total_scr);
+			
+		}
+		if(ttaken_flt<FIVE)
+		{
+			total_scr=total_scr+((FIVE-ttaken_flt)*parseFloat(20));
+			//alert("Ttaken <5 ka andar "+total_scr);
+		}
+		if(selfmade_int==parseInt(1))
+		{
+			total_scr=total_scr+(40);
+			//alert("Self made ka andar"+total_scr);
+		}
+	//}
 	document.getElementById("time").innerHTML = tot_scr;
 	alert(tot_scr);
 //-->
@@ -98,19 +145,38 @@ font{
 			<TABLE width="238px" bgcolor="grey">
 			<tr>
 			<td><font color="#DDFFFF">
-			No Of Goals Scored &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="4" value="" name="goal"></font>
+			Time Taken &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="4" value="" name="ttaken"></font>
 			</tr>
 <tr></tr>
 
 			<TR> 
 			<TD><font color="#DDFFFF">
-			Wireless Control Points &nbsp;<input type = "text" name="wireless" value="" size="4">
+			No of CheckPoints &nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" name="cpt" value="" size="4">
 			</TD>
 			</TR>
 			<TR> 
 			<TD><font color="#DDFFFF">
-			Number of  Touches &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" name="touches" value="" size="4">
+			Number of  Touches &nbsp;&nbsp;&nbsp;<input type = "text" name="touches" value="" size="4">
 			</TD>
+			</TR>
+			<TR> 
+			<TD><font color="#DDFFFF">
+			Whole Completed &nbsp;
+			<input type="radio" name="whole" id="whole1">Yes|
+			<input type="radio" name="whole" id="whole0">No
+			
+			</TD>
+			</tr>
+			<tr>
+			<TD><font color="#DDFFFF">
+			Is the Bot Selfmade &nbsp;
+			<input type="radio" name="selfmade" id="selfmade1">Yes|
+			<input type="radio" name="selfmade" id="selfmade0">No
+			
+			</TD>
+			
+			
+			
 			</TR>
 <tr></tr>
 			

@@ -1,7 +1,8 @@
 <?php
 
 
-function validateuser() {
+function validateuser() 
+{
 
   // Use cookie information and validate cookie
   // Use cookie and Extract the cookie data (Username and Password)

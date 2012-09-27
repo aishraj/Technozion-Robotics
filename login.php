@@ -1,5 +1,5 @@
 <?php
-
+$firstloginhere = 0;
 
   // If there is no cookie presesnt
 if (!isset($_COOKIE['cookie_info']))
@@ -15,24 +15,25 @@ if (!isset($_COOKIE['cookie_info']))
           echo "<center><br>Incorrect password<hr><br><a href=\"login.html\">RETRY</a></center>"; exit;
         }
 	include("pfile.php");
-    
+    //echo $password;
       if ($password == $key) 
         {
  
            // Get the current time and make the cookie
               $time = time();
               $cookie_data = $password;
-             if (setcookie ("cookie_info",$cookie_data, $time+3600)==TRUE)
+			  if (setcookie ("cookie_info",$cookie_data, $time+3600)==TRUE)
               {
               }
               else 
               {
                    echo "You computer does not support cookies. <BR> To view other pages after logged in you need to have cookies enabled.<BR>";
               }
-            
+			  //echo "Idhar Dekh";
+			   $firstloginhere = 1;
 
               // Since this is the first time of login, cookies aren't readable yet
-              $firstloginhere = 1;
+             
 
               // Home
               
@@ -77,14 +78,16 @@ include("pfile.php");
 if ($passcookie == $key) 
  {
         //echo"<script language= \"javascript\">alert(\" cookie\");</script>";
-         if ($firstloginhere == 0) 
-          {
-                  // Home
-                    include("home.php");
-		       login($passcookie);init();
-			
-                  
-         }
+		
+			 if ($firstloginhere == 0) 
+			  {
+					  // Home
+						include("home.php");
+				   login($passcookie);init();
+				
+					  
+			 }
+		 
           
       // If user and password are not correct print error message
  }

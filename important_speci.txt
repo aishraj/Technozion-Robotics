@@ -1,0 +1,10 @@
+NO OPERA
+tools
+preferences
+advanced
+history
+memory cache->off
+disk cache->off
+
+
+Only Google Chrome.......flop

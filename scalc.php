@@ -11,26 +11,37 @@ function calc()
 {
 
 var tb,mb,tr,bp,py,scr;
+var cpt_int,rnk_int,crt_int,total_scr;
 
-	if (document.data.runt.value=="")
-	bp=parseInt(0);
+	if (document.data.cpt.value=="")
+	cpt_int=parseInt(0);
 	else
-	bp=parseInt(document.data.runt.value);
+	cpt_int=parseInt(document.data.cpt.value);
 
 
-	if (document.data.totball.value=="")
-	tb=parseInt(0);
+	if (document.data.crt.value=="")
+	crt_int=parseInt(0);
 	else
-	tb=parseInt(document.data.totball.value);
+	crt_int=parseInt(document.data.crt.value);
 			
-	if (document.data.tbonus.value=="")
-	tr=parseInt(0);
+	if (document.data.rnk.value=="")
+	rnk_int=parseInt(0);
 	else
-	tr=parseInt(document.data.tbonus.value); 	
+	rnk_int=parseInt(document.data.rnk.value); 	
 	
-	mb=parseInt((tb/5)*(tr));
-	scr= parseInt((bp)+(mb));
-	document.getElementById("time").innerHTML = scr;
+	tot_scr=(cpt_int*20);
+	if(crt_int>3)
+	{
+		tot_scr=tot_scr-(5*(crt_int-3));
+	}
+	if(rnk_int==1)
+	{
+		tot_scr=tot_scr+50;
+	}
+	//mb=parseInt((tb/5)*(tr));
+	//scr= parseInt((bp)+(mb));
+	document.getElementById("time").innerHTML = tot_scr;
+	alert(tot_scr);
 //-->
 }
 </script>
@@ -55,12 +66,15 @@ font{
 </style>
 </head>
 <body bgcolor="black" font="calibri">
-<a href="scalc.php"><font color="#00FF00" size="4">Micromouse</font>
+<a href="scalc.php"><font color="#00FF00" size="4">Mobile Control</font>
 </a>&nbsp;&nbsp;&nbsp;
-<a href="dcalc.php"><font color="RED" size="4">Hurt Locker</font>
+<a href="rwcalc.php"><font color="RED" size="4">RoboWars</font>
 </a>&nbsp;&nbsp;&nbsp;
 <a href="rscalc.php"><font color="RED" size="4">Robosoccer</font>
 </a>
+<a href="lfcalc.php"><font color="#00FF00" size="4">Line Follower</font>
+</a>&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -83,13 +97,13 @@ font{
 			<TABLE width="238px" bgcolor="grey">
 			<tr>
 			<td><font color="#DDFFFF">
-			Run time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" name="runt" value="" size="4"></td>
+			Number Of CheckPoints &nbsp;&nbsp;<input type="text" size="4" value="" name="cpt"></font>
 			</tr>
 <tr></tr>
 
 			<TR> 
 			<TD><font color="#DDFFFF">
-			No. of touches prior to the best run &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<input type = "text" name="totball" value="" size="4">
+			No Of Corrections &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" name="crt" value="" size="4">
 			</TD>
 			</TR>
 <tr></tr>
@@ -97,7 +111,7 @@ font{
 <tr></tr>
 			<tr>
 			<td><font color="#DDFFFF">
-			Best run time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" name="tbonus" value="" size="4"></td>
+			Rank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" name="rnk" value="" size="4"></td>
 			</tr>
 <tr></tr>
 			

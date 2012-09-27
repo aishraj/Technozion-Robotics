@@ -1,20 +1,21 @@
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<title>Create New User</title>
+<title>New Team Registration</title>
 </head>
 
 <?php
 
   $time = time();
-  if (!isset($_COOKIE['cookie_info'])) {
+  if (!isset($_COOKIE['cookie_info'])) 
+  {
       echo "Cannot access this page: You aren't logged in";
       exit;
   }
 
   // If there is a cookie, validate the cookie
-  else {
+  else 
+  {
 
       // Use Connect Script
       include("connect.php");
@@ -30,20 +31,41 @@
 
 
   // Variables that data come from the submission form
-$team = $_POST["team"];     
+  $team = $_POST["team"];     
   $s1 = $_POST["s1"];  
   $s2 = $_POST["s2"];      
   $s3 =  $_POST["s3"];        
   $s4 = $_POST["s4"];    
+  $s5 = $_POST["s5"];    
   $mob1 = $_POST["mob1"];     
-  $mob2 = $_POST["mob2"];        
-  $sscore = 0;  
-  $dscore = 0;
-$rsscore = 0;     
+  $mob2 = $_POST["mob2"];
+  
+  $ismc='false';
+  $isrw='false';
+  $isrs='false';
+  $islf='false';
+  
+  if(isset($_POST['ismc']))
+	$ismc=$_POST['ismc'];
+
+  if(isset($_POST['isrw']))
+	$isrw=$_POST['isrw'];
+  
+  if(isset($_POST['isrs']))
+	$isrs=$_POST['isrs'];
+  
+  if(isset($_POST['islf']))
+	$islf=$_POST['islf'];
+	
+  $mcscore = 0;  
+  $rwscore = 0;
+  $rsscore = 0;     
+  $lfscore = 0; 
   $c1 = $_POST["c1"];  
   $c2 = $_POST["c2"];      
   $c3 =  $_POST["c3"];        
   $c4 = $_POST["c4"]; 
+  $c5 = $_POST["c5"]; 
    
 
 
@@ -82,7 +104,7 @@ if ($isusernameinuse <> 0) {
     //  $usernumber = $noofusers + 1;
 
       // Insert the new user to the database since everything is fine
- mysql_query("INSERT INTO teamdata VALUES ('$team','$s1','$s2','$s3','$s4','$mob1','$mob2','$sscore','$dscore','$rsscore','$c1','$c2','$c3','$c4')");
+	 mysql_query("INSERT INTO teamdata VALUES ('$team','$s1','$s2','$s3','$s4','$s5','$mob1','$mob2','$mcscore','$rwscore','$rsscore','$lfscore','$c1','$c2','$c3','$c4','$c5','$ismc','$isrw','$isrs','$islf')");
 
       // Print Successful Creation of user message
       echo "<font face='Verdana'>Team " . $team . " has been created successfully.";

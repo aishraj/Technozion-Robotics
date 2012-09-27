@@ -10,7 +10,7 @@
 <body>
 
 <?php
-
+$selectteam="";
   $time = time();
   // Check if there is a cookie, if there isn't then redirect to login screen
 if (!isset($_COOKIE['cookie_info'])) 
@@ -40,8 +40,10 @@ else
                login($key);
 
               
-
-               $selectteam = $_POST["selectteam"]; // team selected to modify
+				if(isset($_POST["selectteam"]))
+				{
+					$selectteam=$_POST["selectteam"]; // team selected to modify
+			    }
 ?>
 <div class="dynamicpos">
 <form action="update.php" method="POST">
@@ -88,11 +90,13 @@ else
       $s2 = mysql_result($query,0,2);      
       $s3 = mysql_result($query,0,3);       
       $s4 = mysql_result($query,0,4);      
-      $mob1 = mysql_result($query,0,5);        
-      $mob2 = mysql_result($query,0,6);        
-      $sscore= mysql_result($query,0,7);  
-      $dscore = mysql_result($query,0,8);   
-     $rsscore= mysql_result($query,0,9);
+	  $s5 = mysql_result($query,0,5);      
+      $mob1 = mysql_result($query,0,6);        
+      $mob2 = mysql_result($query,0,7);        
+      $mc_score= mysql_result($query,0,8);  
+      $rw_score = mysql_result($query,0,9);   
+      $rs_score= mysql_result($query,0,10);
+	  $lf_score= mysql_result($query,0,11);
 	
       // Display User Details
       echo "
@@ -123,6 +127,11 @@ else
                 <td><font face='Tahoma'>Member 4:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td> <input type='text' name='s4' value='$s4' /></td>
         </tr>
+				
+		<tr>
+				<td><font face='Tahoma'>Member 5:</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td> <input type='text' name='s5' value='$s5' /></td>
+		</tr>
         <tr>
                 
                 <td width='152'><font face='Tahoma'>Mobile 1:</font></td>
@@ -134,18 +143,21 @@ else
         </tr>
         <tr>
                 
-                <td width='152' height='24'><font face='Tahoma' color = 'red'><b>Micromouse Score:</b></font></td>
-                <td height='24'> <input type='text' name='sscore'  value='$sscore'/></td>
+                <td width='152' height='24'><font face='Tahoma' color = 'red'><b>Mobile Control Score:</b></font></td>
+                <td height='24'> <input type='text' name='mcscore'  value='$mc_score'/></td>
         
                 
-                <td width='152'><font face='Tahoma' color='blue'><b>Hurt Locker Score:</b></font></td>
-                <td> <input type='text' name='dscore'  value='$dscore'/></td>
+                <td width='152'><font face='Tahoma' color='blue'><b>Robo-Wars Score:</b></font></td>
+                <td> <input type='text' name='rwscore'  value='$rw_score'/></td>
         </tr>
 	
 	 <tr>
                 
-                <td width='152' height='24'><font face='Tahoma' color = 'red'><b>Robosoccer Score:</b></font></td>
-                <td height='24'> <input type='text' name='rsscore'  value='$rsscore'/></td>
+                <td width='152' height='24'><font face='Tahoma' color = 'red'><b>Robo-soccer Score:</b></font></td>
+                <td height='24'> <input type='text' name='rsscore'  value='$rs_score'/></td>
+				
+				<td width='152' height='24'><font face='Tahoma' color = 'red'><b>Line Follower Score:</b></font></td>
+                <td height='24'> <input type='text' name='lfscore'  value='$lf_score'/></td>
         
                 
                

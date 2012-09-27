@@ -42,6 +42,7 @@
                 <td width="144"><font face="Verdana"><b>Team Name:</b></font></td>
                 <td> <input type="text" name="team" maxlength="20"/></td>
         </tr>
+		
 <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
         <tr>
                 <td width="100">&nbsp;</td>
@@ -70,6 +71,13 @@
                 <td> <input type="text" name="s4" /></td>
 <td width="144"><font face="Verdana">College :</font></td>
                 <td> <input type="text" name="c4" maxlength="50" /></td>
+        </tr>
+		 <tr>
+                <td width="100">&nbsp;</td>
+                <td width="144"><font face="Verdana">Member 5:</font></td>
+                <td> <input type="text" name="s5" /></td>
+<td width="144"><font face="Verdana">College :</font></td>
+                <td> <input type="text" name="c5" maxlength="50" /></td>
         </tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
         <tr>
                 <td width="100">&nbsp;</td>
@@ -87,6 +95,24 @@
                 <td height="44"> <input type="submit" value="Create Team">
  <input type="reset" value="Reset"></td>
         </tr>
+		
+		<!-- Event Check Box -->
+		
+		<tr>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		|<input type="checkbox" name="ismc" value="true" /> Mobile Control |
+		</tr>
+		<tr>
+		|<input type="checkbox" name="isrw" value="true" /> Robo wars |
+		</tr>
+		<tr>
+		|<input type="checkbox" name="isrs" value="true" /> Robo Soccer| 
+		</tr>
+		<tr>
+		|<input type="checkbox" name="islf" value="true" /> Line Follower|
+		</tr>
+		
+
         </table>
 </form>
 

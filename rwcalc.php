@@ -10,36 +10,21 @@ history.go(0);
 function calc()
 {
 
-	/*
-	10 points will be awarded for a goal scored.
-30 points extra will be awarded for a wireless controlled bot.
-5 points will be deducted if the participant touches the bot more than two times.
-	*/
 
-	var goal_int,wireless_int,touches_int,total_scr;
+	var rfall_int,nattack_int,total_scr;
 
-	if (document.data.goal.value=="")
-	goal_int=parseInt(0);
+	if (document.data.rfall.value=="")
+	rfall_int=parseInt(0);
 	else
-	goal_int=parseInt(document.data.goal.value);
+	rfall_int=parseInt(document.data.rfall.value);
 
-	if (document.data.wireless.value=="")
-	wireless_int=parseInt(0);
+	if (document.data.nattack.value=="")
+	nattack_int=parseInt(0);
 	else
-	wireless_int=parseInt(document.data.wireless.value); 
-
-	if (document.data.touches.value=="")
-	touches_int=parseInt(0);
-	else
-	touches_int=parseInt(document.data.touches.value); 
+	nattack_int=parseInt(document.data.nattack.value); 	
 	
-	tot_scr=(goal_int*10);
-	tot_scr=tot_scr+wireless_int;
-	if(touches_int>2)
-	{
-		tot_scr=tot_scr-((touches_int-2)*5);
-		
-	}
+	tot_scr=(nattack_int*100);
+	tot_scr=tot_scr-(50*rfall_int);
 	
 	document.getElementById("time").innerHTML = tot_scr;
 	alert(tot_scr);
@@ -98,18 +83,13 @@ font{
 			<TABLE width="238px" bgcolor="grey">
 			<tr>
 			<td><font color="#DDFFFF">
-			No Of Goals Scored &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="4" value="" name="goal"></font>
+			No Of Time the Robot Falls <input type="text" size="4" value="" name="rfall"></font>
 			</tr>
 <tr></tr>
 
 			<TR> 
 			<TD><font color="#DDFFFF">
-			Wireless Control Points &nbsp;<input type = "text" name="wireless" value="" size="4">
-			</TD>
-			</TR>
-			<TR> 
-			<TD><font color="#DDFFFF">
-			Number of  Touches &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" name="touches" value="" size="4">
+			No Of Attack &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" name="nattack" value="" size="4">
 			</TD>
 			</TR>
 <tr></tr>

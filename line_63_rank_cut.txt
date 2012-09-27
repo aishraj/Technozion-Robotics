@@ -1,0 +1,16 @@
+<?php
+  // Get all the usernames from the database and allow user to choose one
+  $s = mysql_query("SELECT * FROM teamdata where team <> '' order by sscore desc");
+  $d = mysql_query("SELECT * FROM teamdata where team <> '' order by dscore desc");
+  
+  for ($x = 0; $x < 5 && $x < mysql_num_rows($s); $x++) 
+  {
+          $teamname1= mysql_result($s,$x,0);
+          $sc1= mysql_result($s,$x,7);
+		  $teamname2= mysql_result($d,$x,0);
+          $sc2= mysql_result($d,$x,8);
+?>
+           <tr><td align="center" width="8%"><?php echo $x+1 ; ?><td align="center" width ="23%"><?php echo"<a href='teamdetails.php?team=$teamname1'>$teamname1</a><td align='center' width ='23%'>$sc1";?></td><td align='center' width ='23%'><?php echo"<a href = 'teamdetails.php?team=$teamname2'>$teamname2</a><td align='center' width ='23%'>$sc2";?></td></tr>
+<?php
+    }
+?>
